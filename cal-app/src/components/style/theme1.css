@@ -101,7 +101,7 @@ input[type="checkbox"].toggle1:checked + span{
     padding: 0.5em;
     color: var(--White);
     font-weight: bold;
-
+    font-size: 2.5rem;
 }
 
 .output__display:focus{
