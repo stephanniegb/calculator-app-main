@@ -96,7 +96,6 @@ input[type="checkbox"].toggle1:checked + span{
     word-break: break-all;
     background-color: var(--desaturated-blue);
     width: 95%;
-    height: 300px;
     border-radius: 10px;
     padding: 0.5em;
     color: var(--White);
@@ -247,21 +246,11 @@ input[type="checkbox"].toggle1:checked + span{
         row-gap: 1.5rem;
     }
     .cal__btn{
-    box-shadow: 0  3.5px var(--Grayish-orange);
         padding: 0.3rem;
         width: 95%;
     }
     .delBtn{
         padding: 0;
         width: 95%;
-    box-shadow: 0  3.5px var(--Desaturated-dark-blue2);
-
-    }
-    .resetBtn{
-    box-shadow: 0  3.5px var(--Desaturated-dark-blue2);
-
-    }
-    .equalBtn{
-        box-shadow: 0 3.5px var(--Dark-red);
     }
 }
