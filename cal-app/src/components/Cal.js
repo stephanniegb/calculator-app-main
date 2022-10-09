@@ -1,7 +1,5 @@
 import React, { useReducer} from "react";
-import "./style/theme1.css";
 import { formatOperand } from "./util/formatter";
-import Toggle from "./Toggle";
 
 const ACTIONS = {
   ADD_DIGIT:'add_digit',
@@ -120,14 +118,7 @@ function evaluate({ currentOperand, prevOperand, operation }) {
 function Calc() {
   const [{currentOperand = 0, prevOperand, operation}, dispatch] = useReducer(reducer, {})
   return (
-    <div className="theme1">
-      <div className="header">
-        <span className="logo">calc</span>
-        <div className="header__theme">
-          <small>THEME</small>
-          <Toggle/>
-        </div>
-      </div>
+    <>
       <div className="output__display">
       {formatOperand(prevOperand)} {operation} {formatOperand(currentOperand)}
       </div>
@@ -151,11 +142,11 @@ function Calc() {
         <button className="cal__btn" onClick={() => dispatch({type:ACTIONS.CHOOSE_OPERATION, payload: '*'})}>x</button>
         </div>
         <div className="cal__resetBtns">
-        <button className="resetBtn" onClick={() => dispatch({type:ACTIONS.CLEAR})}>Reset</button>
+        <button className="resetBtn" onClick={() => dispatch({type:ACTIONS.CLEAR})}>RESET</button>
           <button className="equalBtn" onClick={() => dispatch({type:ACTIONS.EVALUATE})}>=</button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

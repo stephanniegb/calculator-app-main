@@ -10,14 +10,12 @@
     --Grayish-orange:hsl(28, 16%, 65%);
     --White:hsl(0, 0%, 100%);
 }
-.theme1{
-    background-color: var(--Very-dark-desaturated-blue);
-    height: 100vh;
+.themes{
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
-    padding: 1rem;
 }
 .header{
     width: 95%;
@@ -29,6 +27,7 @@
 .logo{
     font-size: 2rem;
     font-weight: 900;
+    min-width: 0;
 }
 .header__theme{
     display: flex;
@@ -49,52 +48,30 @@
     display: flex;
     justify-content: space-evenly;
 }
-.switch{
-    position: relative;
-    display: flex;
-    width: 70px;
-    height: 15px;
-    display: inline-block;
+.toggle{
     background-color: var(--dark-desaturated-blue);
+    display: flex;
+    width: 90px;
+    padding: 0.5em;
+    justify-content: space-evenly;
     border-radius: 50px;
-    padding: 1em;
-    cursor: pointer;
-}
-.toggle1{
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.toggle__ball{
-    display: inline-block;
-    background-color: var(--Red);
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    position: absolute;
-    left: 5%;
-    right: 5%;
-    top: 22%;
-    bottom: 0;
-    -webkit-transition: .4s;
+    padding: 0.5em;
     transition: .4s;
 }
-
-input[type="checkbox"].toggle1:checked + span{
-    position: absolute;
-    webkit-transform: translateX(45px);
-    -ms-transform:translateX(45px) ;
-    transform: translateX(45px);
-
-}  
+.ball{
+    width: 15px;
+    cursor: pointer;
+    height: 15px;
+    border-radius: 50%;
+    appearance: none;
+    padding: 0;
+}
 .output__display{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     word-wrap: break-word;
     word-break: break-all;
-    background-color: var(--desaturated-blue);
     width: 95%;
     border-radius: 10px;
     padding: 0.5em;
@@ -109,7 +86,6 @@ input[type="checkbox"].toggle1:checked + span{
     
 .cal__btnDiv{
     border-radius: 10px;
-    background-color: hsla(223, 31%, 20%);
     width: 95%;
     padding: 1.5em;
 }
@@ -124,15 +100,11 @@ input[type="checkbox"].toggle1:checked + span{
     cursor: pointer;
     min-width: 0;
     width: 100%;
-    padding: 0.5em;
-    border-radius: 5px;
-    background-color: var(--Light-grayish-orange);
+    border-radius: 10px;
     border: none;
     font-size: 2em;
-    color: var(--Desaturated-dark-blue2);
     font-weight: bolder;
     font-family: 'League Spartan', sans-serif;
-    box-shadow: 0  5px var(--Grayish-orange);
 }
 .cal__btn:hover{
     background-color: hsl(30, 40%, 98%);
@@ -141,18 +113,13 @@ input[type="checkbox"].toggle1:checked + span{
     cursor: pointer;
     min-width: 0;
     width: 100%;
-    padding: 1em;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     color: var(--White);
-    background-color:var(--Desaturated-dark-blue) ;
     font-weight: bolder;
     font-family: 'League Spartan', sans-serif;
     font-size: 1.2em;
-    box-shadow: 0  5px var(--Desaturated-dark-blue2);
-
 }
-
 .cal__resetBtns{
     width: 100%;
     margin-top: 1em;
@@ -164,27 +131,17 @@ input[type="checkbox"].toggle1:checked + span{
     cursor: pointer;
     width: 100%;
     padding: 1em;
-    border-radius: 5px;
+    border-radius: 10px;
     color: var(--White);
     font-weight: bolder;
     font-size: 1em;
     font-family: 'League Spartan', sans-serif;
-
 }
 .resetBtn{
-    background-color:var(--Desaturated-dark-blue) ;
     border: none;
-    box-shadow: 0  5px var(--Desaturated-dark-blue2);
-
-}
-.delBtn:hover, .resetBtn:hover{
-    background-color:hsl(225, 54%, 73%) ;
 }
 .equalBtn{
-    background-color:  var(--Red);
     border: none;
-    box-shadow: 0  5px var(--Dark-red);
-
 }
 .equalBtn:hover{
     background-color: hsl(6, 91%, 67%);
@@ -198,13 +155,15 @@ input[type="checkbox"].toggle1:checked + span{
     .output__display,.small__display{
         width: 83%;
     }
-    
     .cal__btnDiv{
         width: 83%;
     }
 }
 
 @media screen and (min-width:590.02px) and (max-width: 960.8px){
+    .themes{
+        height: 100vh
+    }
     .header{
         width: 50%;
     }
@@ -214,13 +173,12 @@ input[type="checkbox"].toggle1:checked + span{
     .cal__btnDiv{
         max-width: 50%;
         padding: 1.8rem;
-
     }
     .cal__numBtns{
         row-gap: 1.5rem;
     }
     .cal__btn{
-        padding: 0.3rem;
+        /* padding: 0.3rem; */
         width: 100%;
     }
     .delBtn{
@@ -230,27 +188,141 @@ input[type="checkbox"].toggle1:checked + span{
     
 }
 @media screen and (min-width:961px) {
+    .themes{
+        height: 100%;
+    }
     .header{
         width: 33%;
     }
     .output__display,.small__display{
         width: 33%;
-    }
-    
-    .cal__btnDiv{
+    }    
+   .cal__btnDiv{
         max-width: 33%;
         padding: 1.8rem;
-
     }
     .cal__numBtns{
         row-gap: 1.5rem;
     }
     .cal__btn{
-        padding: 0.3rem;
+        /* padding: 0.3rem; */
         width: 95%;
     }
     .delBtn{
         padding: 0;
         width: 95%;
     }
+}
+
+#theme1{
+    background-color: var(--Very-dark-desaturated-blue);
+    color: var(--White);
+    transition: 0.4s;
+
+}
+#theme1 .ball, #theme1 .equalBtn{
+    background-color: var(--Red);
+}
+#theme1 .equalBtn{
+    box-shadow: 0  3px var(--Dark-red); 
+}
+#theme1 .output__display{
+    background-color: var(--desaturated-blue);
+    color: var(--White);
+}
+#theme1 .cal__btnDiv{
+    background-color: hsla(223, 31%, 20%);
+
+}
+#theme1 .cal__btn{
+    background-color: var(--Light-grayish-orange);
+    color: var(--Desaturated-dark-blue2);
+    box-shadow: 0  3px var(--Grayish-orange);
+}
+#theme1 .resetBtn, #theme1 .delBtn{
+    background-color:var(--Desaturated-dark-blue) ;
+    box-shadow: 0  3px var(--Desaturated-dark-blue2); 
+}
+#theme1 .delBtn:hover, #theme1 .resetBtn:hover{
+    background-color:hsl(225, 54%, 73%) ;
+
+}
+/* THEME 2 STYLES  */
+#theme2{
+    background-color: hsl(0, 0%, 90%);
+    color:hsl(60, 10%, 19%) ;
+    transition: 0.4s;
+}
+#theme2 .ball, #theme2 .equalBtn{
+    background-color:hsl(25, 98%, 40%);
+}
+#theme2 .equalBtn{
+    box-shadow: 0  3px hsl(25, 99%, 27%); 
+}
+#theme2 .equalBtn:hover{
+    background-color:hsl(25, 85%, 60%);
+
+}
+#theme2 .output__display{
+    background-color: hsl(0, 0%, 93%);
+    color: hsl(60, 10%, 19%);
+}
+#theme2 .cal__btnDiv, #theme2 .toggle{
+    background-color: hsl(0, 5%, 81%);
+
+}
+#theme2 .cal__btn{
+    background-color: hsl(45, 7%, 89%);
+    color: hsl(60, 10%, 19%);
+    box-shadow: 0  3px  hsl(35, 11%, 61%);
+}
+#theme2 .cal__btn:hover{
+    background-color: hsl(44, 44%, 95%);
+}
+
+#theme2 .resetBtn, #theme2 .delBtn{
+    background-color:hsl(185, 42%, 37%) ;
+    box-shadow: 0  3px hsl(185, 58%, 25%); 
+}
+#theme2 .delBtn:hover, #theme2 .resetBtn:hover{
+    background-color:hsl(185, 52%, 59%) ;
+
+}
+/* THEME 3 STYLES */
+#theme3{
+    background-color: hsl(268, 75%, 9%);
+    color: hsl(52, 100%, 62%);
+    transition: 0.4s;
+}
+#theme3 .ball, #theme3 .equalBtn{
+    background-color:hsl(176, 100%, 44%);
+}
+#theme3 .equalBtn{
+    box-shadow: 0  3px hsl(177, 92%, 70%);
+    color: hsl(60, 10%, 19%); 
+}
+#theme3 .equalBtn:hover{
+    background-color:hsl(176, 63%, 72%);
+
+}
+#theme3 .output__display,#theme3 .cal__btnDiv, #theme3 .toggle{
+    background-color: hsl(268, 71%, 12%);
+    color: hsl(52, 100%, 62%);
+}
+#theme3 .cal__btn{
+    background-color: hsl(268, 47%, 21%);
+    color: hsl(52, 100%, 62%);
+    box-shadow: 0  3px  hsl(290, 70%, 36%);
+}
+#theme3 .cal__btn:hover{
+    background-color:hsl(268, 63%, 52%);
+}
+
+#theme3 .resetBtn, #theme3 .delBtn{
+    background-color:hsl(268, 47%, 21%) ;
+    box-shadow: 0  3px hsl(290, 70%, 36%); 
+}
+#theme3 .delBtn:hover, #theme3 .resetBtn:hover{
+    background-color:hsl(268, 43%, 40%) ;
+
 }
