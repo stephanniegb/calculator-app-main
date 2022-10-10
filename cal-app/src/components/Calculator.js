@@ -1,28 +1,46 @@
-import React, { useState } from "react";
+import React, { useReducer} from "react";
 import './style/styleSheet.css'
 import Calc from "./Cal";
+const initialValues ={
+  theme1: true,
+  theme2: false,
+  theme3:false,
+  id:'theme1'
+}
+const TOGGLE_ACTIONS ={
+  SET_THEME1:'update theme1',
+  SET_THEME2:'update theme2',
+  SET_THEME3:'update theme3',
+}
+function reducer(state, action){
+  switch (action) {
+    case TOGGLE_ACTIONS.SET_THEME1:
+      return{
+        ...state,
+        theme1:false,
+        theme2:true,
+        id: 'theme2'
+      }
+    case TOGGLE_ACTIONS.SET_THEME2:
+      return{
+        ...state,
+        theme2:false,
+        theme3:true,
+        id: 'theme3'
+      }
+    case TOGGLE_ACTIONS.SET_THEME3:
+      return{
+        ...state,
+        theme3:false,
+        theme1:true,
+        id: 'theme1'
+      }
+    default: return state
+  }
+}
 
 function Calculator() {
-  const [theme1, setTheme1] = useState(true);
-  const [theme2, setTheme2] = useState(false);
-  const [theme3, setTheme3] = useState(false);
-  const [id, setId] = useState("theme1");
-
-  function handleTheme1() {
-    setTheme1(false);
-    setTheme2(true);
-    setId("theme2");
-  }
-  function handleTheme2() {
-    setTheme2(false);
-    setTheme3(true);
-    setId("theme3");
-  }
-  function handleTheme3() {
-    setTheme3(false);
-    setTheme1(true);
-    setId("theme1");
-  }
+  const [{theme1, theme2, theme3, id}, dispatch] = useReducer(reducer, initialValues)
 
   return (
     <div className="themes" id={id}>
@@ -42,7 +60,7 @@ function Calculator() {
                 name="theme"
                 id="one"
                 key={"key1"}
-                onClick={handleTheme1}
+                onClick={() =>{dispatch(TOGGLE_ACTIONS.SET_THEME1)}}
               />
 
               <input
@@ -52,7 +70,7 @@ function Calculator() {
                 name="theme"
                 id="two"
                 key={"key2"}
-                onClick={handleTheme2}
+                onClick={() =>{dispatch(TOGGLE_ACTIONS.SET_THEME2)}}
               />
 
               <input
@@ -62,7 +80,7 @@ function Calculator() {
                 name="theme"
                 id="three"
                 key={"key3"}
-                onClick={handleTheme3}
+                onClick={() =>{dispatch(TOGGLE_ACTIONS.SET_THEME3)}}
               />
             </div>
           </div>
