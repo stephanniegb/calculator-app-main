@@ -62,12 +62,10 @@ const [{currentOperand = 0, prevOperand, operation}, dispatch] = useReducer(redu
 
 ```
 And everthing around the useReducer hook
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-I will focuse on building better and more user friendly websites and app with ReactJS amd other technologies
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I will focus on building better and more user friendly websites and app with ReactJS amd other technologies
 
 ### Useful resources
 
